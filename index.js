@@ -1,74 +1,86 @@
 const inquirer = require('inquirer');
+const teamMembers = [];
 
 // QUESTIONS
 
 // MANAGER
-const managQuestions = [
-    // Manager'name
-    {
-        type: 'input',
-        name: 'managerFisrtName',
-        message: 'Enter the name of the manager (Required)',
-        validate: managerNameInput => {
-            if (managerNameInput) {
-                return true;
-            } else {
-                console.log('You need to enter the name of the manager to continue');
-                return false;
+
+function managerQuestions(){
+    inquirer
+        .prompt({
+            type: 'input',
+            name: 'managerFisrtName',
+            message: 'Enter the name of the manager (Required)',
+            validate: managerNameInput => {
+                if (managerNameInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter the name of the manager to continue');
+                    return false;
+                }
             }
-        }
-    },
-
-    // Manager's id
-    {
-        type: 'input',
-        name: 'managerId',
-        message: 'Enter the managers Id number (Required)',
-        validate: managerIdInput => {
-            if (managerIdInput) {
-                return true;
-            } else {
-                console.log('You need to enter the managers id number to continue');
-                return false;
+        },
+    
+        // Manager's id
+        {
+            type: 'input',
+            name: 'managerId',
+            message: 'Enter the managers Id number (Required)',
+            validate: managerIdInput => {
+                if (managerIdInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter the managers id number to continue');
+                    return false;
+                }
             }
-        }
-    },
-
-    //Manager's email address
-
-    {
-        type: 'input',
-        name: 'managerEmail',
-        message: 'Enter the managers email address (Required)',
-        validate: managerEmailInput => {
-            if (managerEmailInput) {
-                return true;
-            } else {
-                console.log('You need to enter the managers email address to continue');
-                return false;
+        },
+    
+        //Manager's email address
+    
+        {
+            type: 'input',
+            name: 'managerEmail',
+            message: 'Enter the managers email address (Required)',
+            validate: managerEmailInput => {
+                if (managerEmailInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter the managers email address to continue');
+                    return false;
+                }
             }
-        }
-    },
-
-    //Manager's office number
-
-    {
-        type: 'input',
-        name: 'managerOfficeNo',
-        message: 'Enter the managers office number (Required)',
-        validate: managerOfficeInput => {
-            if (managerOfficeInput) {
-                return true;
-            } else {
-                console.log('You need to enter the managers office number to to continue');
-                return false;
+        },
+    
+        //Manager's office number
+    
+        {
+            type: 'input',
+            name: 'managerOfficeNo',
+            message: 'Enter the managers office number (Required)',
+            validate: managerOfficeInput => {
+                if (managerOfficeInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter the managers office number to to continue');
+                    return false;
+                }
             }
+        },)
+        // What will be done after the prompts
+        .then((response) => {
+            let name = response.managerFirstName;
+            let id = response.managerId;
+            let email = response.managerEmail;
+            let officeNo = response.managerOfficeNo;
         }
-    },
-]
+        )
+}
 
 // ENGINEER
-const enginQuestions = [
+function enginQuestions (){
+    inquirer
+        .prompt(
     // Engineer's name
     {
         type: 'input',
@@ -84,7 +96,7 @@ const enginQuestions = [
         }
     },
 
-    // Manager's id
+    // Engineer's id
     {
         type: 'input',
         name: 'engineerId',
@@ -99,7 +111,7 @@ const enginQuestions = [
         }
     },
 
-    //engineer's email address
+    //Engineer's email address
 
     {
         type: 'input',
@@ -115,7 +127,7 @@ const enginQuestions = [
         }
     },
 
-    //engineer's github username
+    //Engineer's github username
 
     {
         type: 'input',
@@ -130,73 +142,86 @@ const enginQuestions = [
             }
         }
     },
-]
+        ) 
+        .then((response) => {
+            let name = response.engineerFirstName;
+            let id = response.engineerId;
+            let email = response.engineerEmail;
+            let github = response.engineer.hithub
+        })
+}
 
 // INTERN
-
-const internQuestions = [
-    // intern'name
-    {
-        type: 'input',
-        name: 'internFisrtName',
-        message: 'Enter the name of the intern (Required)',
-        validate: internNameInput => {
-            if (internNameInput) {
-                return true;
-            } else {
-                console.log('You need to enter the name of the intern to continue');
-                return false;
-            }
-        }
-    },
-
-    // intern's id
-    {
-        type: 'input',
-        name: 'internId',
-        message: 'Enter the interns Id number (Required)',
-        validate: internIdInput => {
-            if (internIdInput) {
-                return true;
-            } else {
-                console.log('You need to enter the interns id number to continue');
-                return false;
-            }
-        }
-    },
-
-    //intern's email address
-
-    {
-        type: 'input',
-        name: 'internEmail',
-        message: 'Enter the interns email address (Required)',
-        validate: internEmailInput => {
-            if (internEmailInput) {
-                return true;
-            } else {
-                console.log('You need to enter the interns email address to continue');
-                return false;
-            }
-        }
-    },
-
-    //intern's school name
-
-    {
-        type: 'input',
-        name: 'internSchool',
-        message: 'Enter the interns school name (Required)',
-        validate: internSchoolInput => {
-            if (internSchoolInput) {
-                return true;
-            } else {
-                console.log('You need to enter the interns school name to continue');
-                return false;
-            }
-        }
-    },
-]
+function internQuestions (){
+    inquirer
+       .prompt(// intern'name
+       {
+           type: 'input',
+           name: 'internFisrtName',
+           message: 'Enter the name of the intern (Required)',
+           validate: internNameInput => {
+               if (internNameInput) {
+                   return true;
+               } else {
+                   console.log('You need to enter the name of the intern to continue');
+                   return false;
+               }
+           }
+       },
+   
+       // intern's id
+       {
+           type: 'input',
+           name: 'internId',
+           message: 'Enter the interns Id number (Required)',
+           validate: internIdInput => {
+               if (internIdInput) {
+                   return true;
+               } else {
+                   console.log('You need to enter the interns id number to continue');
+                   return false;
+               }
+           }
+       },
+   
+       //intern's email address
+   
+       {
+           type: 'input',
+           name: 'internEmail',
+           message: 'Enter the interns email address (Required)',
+           validate: internEmailInput => {
+               if (internEmailInput) {
+                   return true;
+               } else {
+                   console.log('You need to enter the interns email address to continue');
+                   return false;
+               }
+           }
+       },
+   
+       //intern's school name
+   
+       {
+           type: 'input',
+           name: 'internSchool',
+           message: 'Enter the interns school name (Required)',
+           validate: internSchoolInput => {
+               if (internSchoolInput) {
+                   return true;
+               } else {
+                   console.log('You need to enter the interns school name to continue');
+                   return false;
+               }
+           }
+       },) 
+       .then((response) => {
+           let name = response.InternFirstName;
+           let id = response.InternId;
+           let email = response.internEmail;
+           let school = response.internSchool;
+       })
+}
 
 const addTeamMember =[
     {
@@ -214,3 +239,5 @@ const addTeamMember =[
         }
     },
 ]
+
+managerQuestions();
