@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const createHTML = require('./src/createHTML');
 
 const teamMembers = [];
 
@@ -7,6 +8,7 @@ const Employee = require("./lib/Employee");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern'); 
+const { create } = require('domain');
 
 
 function newEmployee() {
@@ -22,7 +24,6 @@ function newEmployee() {
                 break;
             case 'Done':
                 console.log('Creating your team!')
-                writeToFile(teamMembers.toString());
                 console.log(teamMembers);
         }
     })
@@ -286,7 +287,6 @@ const addTeamMember =[
 
 
 
-managerQuestions();
 
 
 
@@ -301,3 +301,18 @@ const writeToFile = response => {
     })
 }; 
 
+managerQuestions()
+// if remove all the thens, the prompt works
+  .then(newEmployee)
+  .then(teamMembers => {
+    return createHTML(teamMembers);
+  })
+  .then(pageHTML => {
+    return writeToFile(pageHTML);
+  })
+  .catch(err => {
+ console.log(err);
+  });
+
+  
+    
