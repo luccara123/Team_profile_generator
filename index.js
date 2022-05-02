@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const teamMembers = [];
+const Employee = require("./lib/Employee");
 
 // QUESTIONS
 
@@ -73,6 +74,10 @@ function managerQuestions(){
             let id = response.managerId;
             let email = response.managerEmail;
             let officeNo = response.managerOfficeNo;
+
+            const manager = new Manager (name, id, email, officeNo);
+
+            teamMembers.push(manager)
         }
         )
 }

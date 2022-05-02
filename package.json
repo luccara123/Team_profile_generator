@@ -1,4 +1,9 @@
+
+
 {
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
   "dependencies": {
     "inquirer": "^8.2.4"
   },
