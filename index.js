@@ -25,7 +25,8 @@ function newEmployee() {
             case 'Done':
                 console.log('Creating your team!')
                 console.log(teamMembers);
-                writeToFile(teamMembers);
+                const result = createHTML(teamMembers);
+                writeToFile(result);
         }
     })
 }
@@ -106,7 +107,9 @@ function managerQuestions(){
             teamMembers.push(manager)
             console.log(manager);
 
-            newEmployee()    
+            newEmployee() 
+            
+     
         })
 }
 
@@ -286,6 +289,9 @@ const addTeamMember =[
     },
 ]
 
+managerQuestions();
+
+
 
 
 
@@ -302,16 +308,5 @@ const writeToFile = response => {
     })
 }; 
 
-// if remove all the thens, the prompt works
-managerQuestions()
-.then(teamMembers => {
-  return createHTML(teamMembers);
-})
-.then(pageHTML => {
-  return writeToFile(pageHTML);
-})
-.catch(err => {
-console.log(err);
-});
 
 

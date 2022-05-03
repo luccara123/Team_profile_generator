@@ -4,12 +4,13 @@ function managerCard (manager){
    return `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Manager</h5>
+      <i class="fa-solid fa-mug-hot"></i>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">${manager.name}</li>
-      <li class="list-group-item">${manager.id}</li>
-      <li class="list-group-item" <a href="mailto:${manager.email}" class="card-link">${manager.email}</a>></li>
-      <li class="list-group-item">${manager.officeNo}</li>
+      <li class="list-group-item">Name: ${manager.name}</li>
+      <li class="list-group-item">ID: ${manager.id}</li>
+      <li class="list-group-item email">Email: <a href="mailto:${manager.email}"> ${manager.email}</a></li>
+      <li class="list-group-item">Office Number: ${manager.officeNo}</li>
     </ul>
   </div>
     `;
@@ -18,13 +19,14 @@ function managerCard (manager){
 function engineerCard (engineer){
     return `<div class="card" style="width: 18rem;">
      <div class="card-body">
-       <h5 class="card-title">Manager</h5>
+       <h5 class="card-title">Engineer</h5>
+       <i class="fa-solid fa-glasses"></i>
      </div>
      <ul class="list-group list-group-flush">
-       <li class="list-group-item">${engineer.name}</li>
-       <li class="list-group-item">${engineer.id}</li>
-       <li class="list-group-item" <a href="mailto:${engineer.email}" class="card-link">${engineer.email}</a>></li>
-       <li class="list-group-item"><a href="https://github.com/${engineer.github}" class="card-link">${engineer.github}</a></li>
+       <li class="list-group-item">Name: ${engineer.name}</li>
+       <li class="list-group-item">ID: ${engineer.id}</li>
+       <li class="list-group-item email">Email: <a href="mailto:${engineer.email}"> ${engineer.email}</a></li>
+       <li class="list-group-item">Github: <a href="https://github.com/${engineer.github}" class="card-link"> ${engineer.github}</a></li>
      </ul>
    </div>
      `;
@@ -33,13 +35,14 @@ function engineerCard (engineer){
  function internCard (intern){
     return `<div class="card" style="width: 18rem;">
      <div class="card-body">
-       <h5 class="card-title">Manager</h5>
+       <h5 class="card-title">Intern</h5>
+       <i class="fa-solid fa-book"></i>
      </div>
      <ul class="list-group list-group-flush">
-       <li class="list-group-item">${intern.name}</li>
-       <li class="list-group-item">${intern.id}</li>
-       <li class="list-group-item" <a href="mailto:${intern.email}" class="card-link">${intern.email}</a>></li>
-       <li class="list-group-item">${intern.school}</li>
+       <li class="list-group-item">Name: ${intern.name}</li>
+       <li class="list-group-item">ID: ${intern.id}</li>
+       <li class="list-group-item email">Email: <a href="mailto:${intern.email}">Email: ${intern.email}</a></li>
+       <li class="list-group-item">School: ${intern.school}</li>
      </ul>
    </div>
      `;
@@ -90,13 +93,13 @@ function createPage(teamProfiles){
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Profile</title>
-        <link rel="stylesheet" href="dist/styles.css">
+        <link rel="stylesheet" href="./styles.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
 
         <nav>
-            <h1>My team profile</h1>
+            <h1>MY TEAM PROFILE</h1>
         </nav>
 
         <main>
@@ -105,6 +108,7 @@ function createPage(teamProfiles){
            </div>
         </main>
     </body>
+    <script src="https://kit.fontawesome.com/2d9e8320eb.js" crossorigin="anonymous"></script>
     </html>
     `;
 }
