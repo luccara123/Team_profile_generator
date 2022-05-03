@@ -41,7 +41,7 @@ function engineerCard (engineer){
      <ul class="list-group list-group-flush">
        <li class="list-group-item">Name: ${intern.name}</li>
        <li class="list-group-item">ID: ${intern.id}</li>
-       <li class="list-group-item email">Email: <a href="mailto:${intern.email}">Email: ${intern.email}</a></li>
+       <li class="list-group-item email">Email: <a href="mailto:${intern.email}"> ${intern.email}</a></li>
        <li class="list-group-item">School: ${intern.school}</li>
      </ul>
    </div>
