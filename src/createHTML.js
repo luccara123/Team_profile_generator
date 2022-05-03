@@ -67,7 +67,7 @@ function engineerCard (engineer){
             pageArray.push(engineeCard);
         }
 
-        if (role === 'Intern') {
+        if (employeeRole === 'Intern') {
             const interCard = internCard(employee);
 
             pageArray.push(interCard);

@@ -8,7 +8,7 @@ const Employee = require("./lib/Employee");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern'); 
-const { create } = require('domain');
+
 
 
 function newEmployee() {
@@ -25,6 +25,7 @@ function newEmployee() {
             case 'Done':
                 console.log('Creating your team!')
                 console.log(teamMembers);
+                writeToFile(teamMembers);
         }
     })
 }
@@ -296,23 +297,21 @@ const writeToFile = response => {
             console.log(err);
             return;
         } else {
-            console.log("The team profile page has been created!")
+            console.log("The team profile page has been created!");
         }
     })
 }; 
 
-managerQuestions()
 // if remove all the thens, the prompt works
-  .then(newEmployee)
-  .then(teamMembers => {
-    return createHTML(teamMembers);
-  })
-  .then(pageHTML => {
-    return writeToFile(pageHTML);
-  })
-  .catch(err => {
- console.log(err);
-  });
+managerQuestions()
+.then(teamMembers => {
+  return createHTML(teamMembers);
+})
+.then(pageHTML => {
+  return writeToFile(pageHTML);
+})
+.catch(err => {
+console.log(err);
+});
 
-  
-    
+
